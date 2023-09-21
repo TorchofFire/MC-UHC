@@ -1,0 +1,22 @@
+name: mcuhc
+api: spigot
+main: gg.rasher.mcuhc.Plugin
+version: 0.0.1
+api-version: 1.20
+commands:
+  givestick:
+    description: Give the player a stick
+    usage: /givestick
+    permission: mcuhc.givestick
+  createworld:
+    description: Create a new world
+    usage: /createworld <world_name>
+    permission: mcuhc.createworld
+  tpworld:
+    description: tp to another world
+    usage: /tpworld <world_name>
+    permission: mcuhc.tpworld
+  startuhc:
+    description: start a new game on a given world
+    usage: /startuhc <world_name>
+    permission: mcuhc.startuhc
