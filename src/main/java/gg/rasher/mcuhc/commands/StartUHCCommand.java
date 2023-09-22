@@ -6,11 +6,16 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import gg.rasher.mcuhc.Plugin;
 import gg.rasher.mcuhc.services.UHCService;
 
 public class StartUHCCommand implements CommandExecutor {
 
-    private final UHCService uhcService = new UHCService();
+    private UHCService uhcService;
+
+    public StartUHCCommand(Plugin plugin) {
+        this.uhcService = new UHCService(plugin);
+    }
     
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 

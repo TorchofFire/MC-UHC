@@ -8,10 +8,10 @@ commands:
     description: Give the player a stick
     usage: /givestick
     permission: mcuhc.givestick
-  createworld:
-    description: Create a new world
-    usage: /createworld <world_name>
-    permission: mcuhc.createworld
+  uhccreateworld:
+    description: Create a new world for UHC
+    usage: /uhccreateworld <world_name>
+    permission: mcuhc.uhccreateworld
   tpworld:
     description: tp to another world
     usage: /tpworld <world_name>

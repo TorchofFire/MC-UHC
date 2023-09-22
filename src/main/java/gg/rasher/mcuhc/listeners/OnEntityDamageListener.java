@@ -13,7 +13,11 @@ import gg.rasher.mcuhc.services.UHCService;
 public class OnEntityDamageListener implements Listener {
 
     private HubWorldService hubWorldService = new HubWorldService();
-    private UHCService uhcService = new UHCService();
+    private UHCService uhcService;
+
+    public OnEntityDamageListener(Plugin plugin) {
+        this.uhcService = new UHCService(plugin);
+    }
 
     @EventHandler
     public void onEntityDamageEvent(EntityDamageByEntityEvent event) {
@@ -24,7 +28,7 @@ public class OnEntityDamageListener implements Listener {
             hubWorldService.entityDamage(event);
             return;
         }
-        if (world.getName().equals(uhcService.uhcWorld.getName())) {
+        if (world.getName().startsWith("uhc-") ) {
             uhcService.entityDamage(event);
             return;
         }
