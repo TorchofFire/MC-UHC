@@ -12,7 +12,9 @@ import gg.rasher.mcuhc.commands.GiveStickCommand;
 import gg.rasher.mcuhc.commands.StartUHCCommand;
 import gg.rasher.mcuhc.commands.TeleportWorldCommand;
 import gg.rasher.mcuhc.listeners.OnEntityDamageListener;
+import gg.rasher.mcuhc.listeners.OnPlayerDeathListener;
 import gg.rasher.mcuhc.listeners.OnPlayerMoveListener;
+import gg.rasher.mcuhc.listeners.OnPlayerRespawnListener;
 import gg.rasher.mcuhc.listeners.OnWorldLoadListener;
 import gg.rasher.mcuhc.services.HubWorldService;
 
@@ -27,6 +29,8 @@ public class Plugin extends JavaPlugin {
   private OnPlayerMoveListener onPlayerMoveListener = new OnPlayerMoveListener();
   private OnEntityDamageListener onEntityDamageListener = new OnEntityDamageListener(this);
   private HubWorldService hubWorldService = new HubWorldService();
+  private OnPlayerDeathListener onPlayerDeathListener = new OnPlayerDeathListener();
+  private OnPlayerRespawnListener onPlayerRespawnListener = new OnPlayerRespawnListener();
   public static String hubWorld = "UHC hub";
 
   private FileConfiguration config;
@@ -52,6 +56,8 @@ public class Plugin extends JavaPlugin {
     pm.registerEvents(onWorldLoadListener, this);
     pm.registerEvents(onPlayerMoveListener, this);
     pm.registerEvents(onEntityDamageListener, this);
+    pm.registerEvents(onPlayerDeathListener, this);
+    pm.registerEvents(onPlayerRespawnListener, this);
 
     // Register our commands
     getCommand("givestick").setExecutor(new GiveStickCommand());

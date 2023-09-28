@@ -2,6 +2,7 @@ package gg.rasher.mcuhc.services;
 import java.util.Random;
 
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.GameRule;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -34,6 +35,8 @@ public class HubWorldService {
     public void playerMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
         World world = player.getWorld();
+
+        player.setGameMode(GameMode.ADVENTURE);
         
         if (player.getLocation().getY() < -60 || player.getLocation().getY() > -40) {
             Location spawnLocation = world.getSpawnLocation();
